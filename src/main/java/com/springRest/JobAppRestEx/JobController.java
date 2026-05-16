@@ -49,5 +49,18 @@ public class JobController {
         service.deleteJob(postId);
         return "Deleted";
     }
+
+    // To load some data in table job_post
+    @GetMapping("load")
+    public String load(){
+        service.load();
+        return "Success";
+    }
+
+    @GetMapping("getJob/keyword/{keyword}")
+    public List<JobPost> searchKey(@PathVariable String keyword){
+
+        return service.searchKeyword(keyword);
+    }
     
 }
